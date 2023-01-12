@@ -71,6 +71,10 @@ nosetests
 # Install the package.
 pip install .
 
+# Setup notebooks to run in conda env 
+conda install -c anaconda ipykernel
+python -m ipykernel install --user --name=env_py3.7_git
+
 # Have a look at the examples.
 cd examples
 jupyter notebook &
