@@ -46,7 +46,7 @@ no risk of breaking the system python distribution.
 ```shell
 # Download conda https://docs.conda.io/projects/conda/en/latest/user-guide/install/linux.html
 # Create conda env 
-conda create -n python=3.7 env_py3.7_git pip
+conda create -n env_py3.7_git python=3.7 pip
 
 # Activate conda env 
 conda activate env_py3.7_git 
