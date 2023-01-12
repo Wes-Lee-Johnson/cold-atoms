@@ -1,5 +1,6 @@
 import numpy as np
 import coldatoms_lib
+import random
 
 
 class RadiationPressure(object):
@@ -40,11 +41,12 @@ class RadiationPressure(object):
         self.hbar_k = np.copy(hbar_k)
         self.intensity = intensity
         self.detuning = detuning
+        seed = random.randint(10,10**7+10)
+        self.rng_context = coldatoms_lib.Rng(seed).context()
 
     def force(self, dt, ensemble, f):
         s_of_r = self.intensity.intensities(ensemble.x)
         deltas = self.detuning.detunings(ensemble.x, ensemble.v)
         nbars = np.zeros_like(deltas)
         coldatoms_lib.compute_nbars(dt, self.gamma, s_of_r, deltas, nbars)
-        coldatoms_lib.add_radiation_pressure(coldatoms_lib.rng.context(), self.hbar_k, nbars, f)
-
+        coldatoms_lib.add_radiation_pressure(self.rng_context, self.hbar_k, nbars, f)
