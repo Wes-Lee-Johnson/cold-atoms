@@ -60,7 +60,10 @@ cd cold-atoms
 pip install -r requirements.txt
 
 # Build package.
-python setup.py develop
+python setup.py build 
+
+# Install 
+pythin setup.py install 
 
 # Run the tests of the package.
 nosetests
