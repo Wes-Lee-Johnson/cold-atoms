@@ -63,7 +63,7 @@ pip install -r requirements.txt
 python setup.py build 
 
 # Install 
-pythin setup.py install 
+python setup.py install 
 
 # Run the tests of the package.
 nosetests
